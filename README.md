@@ -8,6 +8,10 @@ relevant lines with surrounding context, redacts sensitive values, and emits
 Markdown or JSON that already contains instructions for whichever AI you paste
 it into.
 
+![Safe Log Explainer demo: pasting a log, analyzing it, browsing the packet tabs, toggling redaction, and switching to Raw Dump mode](docs/demo-small.gif)
+
+*The web UI in action; the CLI produces the same packet from a file or stdin.*
+
 ## What it does
 
 1. **Parse** — splits the log into lines and finds error-like lines
