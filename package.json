@@ -1,0 +1,49 @@
+{
+  "name": "safe-log-explainer",
+  "version": "0.1.0",
+  "description": "Local-first log explainer: turns pasted or uploaded application logs into a redacted, structured debug packet you can safely hand to an AI assistant.",
+  "license": "MIT",
+  "author": "tw-dev9",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw-dev9/log_explainer.git"
+  },
+  "homepage": "https://github.com/tw-dev9/log_explainer#readme",
+  "bugs": {
+    "url": "https://github.com/tw-dev9/log_explainer/issues"
+  },
+  "keywords": [
+    "logs",
+    "log-analysis",
+    "debugging",
+    "redaction",
+    "sanitizer",
+    "triage",
+    "ai-assistant",
+    "cli",
+    "local-first"
+  ],
+  "type": "module",
+  "bin": {
+    "safe-log-explainer": "./dist/src/cli.js"
+  },
+  "files": [
+    "dist/src",
+    "patterns",
+    "public"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "start": "node dist/src/cli.js",
+    "serve:ui": "node dist/src/static-server.js",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

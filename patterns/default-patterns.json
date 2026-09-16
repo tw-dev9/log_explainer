@@ -1,0 +1,80 @@
+[
+  {
+    "id": "application-crash",
+    "category": "Application Crash",
+    "keywords": [
+      "unhandled exception",
+      "uncaught exception",
+      "nullreferenceexception",
+      "nullpointerexception",
+      "segmentation fault",
+      "process crashed",
+      "fatal error",
+      "stack trace"
+    ],
+    "summary": "The log shows an unhandled exception that crashed the request or process.",
+    "likelyCause": "A null/undefined reference, an unhandled edge case, or a bug introduced by a recent change surfaced by this input.",
+    "nextChecks": [
+      "Review the stack trace to find the exact line or function that threw.",
+      "Check whether the crash is reproducible with the same input.",
+      "Look for a related recent code change or deployment.",
+      "Check whether this matches a known crash signature from prior incidents.",
+      "Confirm the process restarted cleanly and isn't stuck in a crash loop."
+    ],
+    "confidence": "Medium"
+  },
+  {
+    "id": "authentication-failure",
+    "category": "Authentication Failure",
+    "keywords": [
+      "401",
+      "403",
+      "unauthorized",
+      "forbidden",
+      "invalid credentials",
+      "invalid token",
+      "authentication failed",
+      "access denied"
+    ],
+    "summary": "The log shows repeated authentication or authorization failures.",
+    "likelyCause": "Expired or invalid credentials/tokens, a misconfigured auth provider, or a credential rotation clients haven't picked up yet.",
+    "nextChecks": [
+      "Verify the token or credential used in the failing requests hasn't expired or been revoked.",
+      "Check the auth provider or identity service for outages or configuration changes.",
+      "Confirm the client is using the correct auth flow, audience, and scope.",
+      "Look for a spike in failures correlated with a recent deploy or secret rotation.",
+      "Review IP and user patterns for potential credential-stuffing attempts."
+    ],
+    "confidence": "Medium"
+  },
+  {
+    "id": "rate-limiting",
+    "category": "Rate Limiting",
+    "keywords": ["429", "too many requests", "rate limit exceeded", "quota exceeded", "throttled"],
+    "summary": "The log shows requests being rejected due to rate limiting or quota limits.",
+    "likelyCause": "The client is exceeding an allotted request rate or quota, due to a traffic spike, a retry storm, or missing backoff logic.",
+    "nextChecks": [
+      "Check current traffic volume against the configured rate limit or quota.",
+      "Look for retry logic that might be amplifying request volume.",
+      "Confirm whether this is expected load or an anomaly/spike.",
+      "Check whether the limit or quota was recently lowered.",
+      "Consider whether the client needs backoff and jitter on retries."
+    ],
+    "confidence": "Medium"
+  },
+  {
+    "id": "timeout",
+    "category": "Timeout",
+    "keywords": ["timeout", "timeoutexception", "timed out"],
+    "summary": "The log shows a request failure caused by repeated timeout errors.",
+    "likelyCause": "A long-running operation, unavailable downstream dependency, database issue, or overloaded service.",
+    "nextChecks": [
+      "Check the downstream dependency or database for latency or availability issues.",
+      "Review the operation or query mentioned near the timeout.",
+      "Look for related errors using the correlation ID.",
+      "Check whether retry behaviour is increasing total request duration.",
+      "Review recent deployments or infrastructure changes."
+    ],
+    "confidence": "Medium"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "hostname",
+    "label": "Possible internal hostname",
+    "pattern": "\\b[a-z0-9-]+\\.(?:corp|internal)\\.example\\b",
+    "flags": "gi"
+  },
+  {
+    "type": "accountId",
+    "label": "Possible account identifier",
+    "pattern": "accountId=[A-Za-z0-9-]+",
+    "replacement": "accountId=[REDACTED:accountId]"
+  }
+]

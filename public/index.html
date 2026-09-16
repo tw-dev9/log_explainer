@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe Log Explainer</title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <script type="module" src="/dist/src/web-ui.js"></script>
+  </head>
+  <body>
+    <main class="workspace" aria-labelledby="page-title">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Local debug packet</p>
+          <h1 id="page-title">Safe Log Explainer</h1>
+        </div>
+        <div class="status" id="status-text" aria-live="polite">Ready</div>
+      </header>
+
+      <section class="panes" aria-label="Log explainer workspace">
+        <form class="pane input-pane" id="log-form">
+          <div class="pane-header">
+            <div class="mode-toggle" role="radiogroup" aria-label="Explainer mode">
+              <label class="mode-toggle-option">
+                <input type="radio" name="explainer-mode" id="mode-guided" value="guided" checked>
+                Guided Demo
+              </label>
+              <label class="mode-toggle-option">
+                <input type="radio" name="explainer-mode" id="mode-rawdump" value="rawdump">
+                Raw Dump
+              </label>
+            </div>
+            <div class="pane-header-actions">
+              <select id="sample-log-select" class="sample-log-select" aria-label="Sample log"></select>
+              <label class="redact-toggle" for="redact-toggle">
+                <input type="checkbox" id="redact-toggle" checked>
+                Redact sensitive data
+              </label>
+              <label class="secondary-action" for="upload-input">
+                Upload log file
+                <input type="file" id="upload-input" accept=".log,.txt,text/plain" hidden>
+              </label>
+              <button class="primary-action" id="analyze-button" type="button">Analyze</button>
+            </div>
+          </div>
+          <textarea
+            id="raw-log"
+            name="raw-log"
+            spellcheck="false"
+            placeholder="Paste raw log lines here..."
+            aria-label="Raw log"
+          ></textarea>
+        </form>
+
+        <section class="pane output-pane" aria-labelledby="explainer-title">
+          <div class="pane-header">
+            <h2 id="explainer-title">Debug Packet</h2>
+            <span class="preview-badge" id="mode-badge">Demo preview</span>
+          </div>
+          <div class="output" id="explainer-output">
+            <section class="result-section preview-note">
+              <h2>Waiting for Log</h2>
+              <p>Paste a raw log to preview the kind of structured explanation this tool will produce.</p>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

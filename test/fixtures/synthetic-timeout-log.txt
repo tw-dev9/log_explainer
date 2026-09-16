@@ -1,0 +1,14 @@
+2026-05-31T09:14:03Z INFO Request started GET /api/orders/active correlationId=req_7f92
+2026-05-31T09:14:03Z INFO Client ip=203.0.113.42 user=jane.doe@example.com
+2026-05-31T09:14:03Z DEBUG Forwarding Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzeW50aGV0aWMifQ.c2lnbmF0dXJlLWJ5dGVz for 203.0.113.42
+2026-05-31T09:14:04Z INFO User context loaded userId=synthetic-user-123
+2026-05-31T09:14:04Z DEBUG Cache lookup orders:active:synthetic-user-123
+2026-05-31T09:14:04Z DEBUG Cache miss, querying database
+2026-05-31T09:14:34Z ERROR Database timeout while executing query GetActiveOrders correlationId=req_7f92 durationMs=30000
+2026-05-31T09:14:34Z ERROR TimeoutException: The operation timed out after 30 seconds
+2026-05-31T09:14:34Z WARN Retrying request correlationId=req_7f92 attempt=1
+2026-05-31T09:15:04Z ERROR Retry failed correlationId=req_7f92 durationMs=30000
+2026-05-31T09:15:04Z INFO Request completed GET /api/orders/active status=500 durationMs=61012
+2026-05-31T09:15:05Z INFO Health check passed
+2026-05-31T09:15:06Z INFO Metrics flushed
+2026-05-31T09:15:07Z INFO Idle
