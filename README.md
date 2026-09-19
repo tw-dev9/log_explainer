@@ -8,6 +8,8 @@ relevant lines with surrounding context, redacts sensitive values, and emits
 Markdown or JSON that already contains instructions for whichever AI you paste
 it into.
 
+https://github.com/user-attachments/assets/b388da9a-805b-45aa-973f-c1e57b8d4c8e
+
 ## What it does
 
 1. **Parse** — splits the log into lines and finds error-like lines
